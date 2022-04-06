@@ -1,4 +1,4 @@
-# 1. Code location
+# 1. Code Repository
 
 https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
