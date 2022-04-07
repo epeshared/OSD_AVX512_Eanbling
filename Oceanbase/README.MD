@@ -11,6 +11,19 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 **ob_build_index_task.h::ObIndexMergeTask**::merge_local_sort_index --> **ob_i_store.cpp::ObSortRow**
 **ob_partition_storage.cpp::ObPartitionStorage**::local_sort_index_by_range --> [**ob_i_store.cpp::ObSortRow**, **ob_store_row_comparer.h::ObStoreRowComparer**]
 
+# Memcomparableformat
+
+ObObj::make_sort_key会用到 memcomparableformat, 其概念在https://github.com/facebook/mysql-5.6/wiki/MyRocks-record-format#:~:text=To%20support%20memcomparable%20format%2C%20MyRocks,remainder%20of%20non%2Dkey%20columns. 中有描述（中文翻译版：https://wanghenshui.github.io/MyRocks_zh_doc/%E4%B8%83%E3%80%81%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84/2.MyRocks%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.html）
+
+比如
+
+![image](https://user-images.githubusercontent.com/3771594/162111330-534ff8ea-bb5b-4092-bae5-9f5a0289862e.png)
+
+对应于MyRocks(https://github.com/facebook/mysql-5.6/blob/fb-mysql-5.6.35/storage/rocksdb/rdb_datadic.cc)的代码：
+
+![image](https://user-images.githubusercontent.com/3771594/162111561-f7adb9f0-d32f-4e99-9119-194ccdd065d0.png)
+
+
 # Refined Code
 ### use_memcmp_
 
