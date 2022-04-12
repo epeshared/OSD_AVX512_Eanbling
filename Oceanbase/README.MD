@@ -25,7 +25,15 @@ ObObj::make_sort_key会用到 memcomparableformat, 其概念在https://github.co
 
 
 # Refined Code
-### use_memcmp_
+### how to use avx512
+
+* ENABLE_AVX512F is enabled in build.sh
+* __builtin_cpu_supports("avx512f") is enbales in src/storage/ob_parallel_external_sort.h
+
+![image](https://user-images.githubusercontent.com/3771594/162872922-4132b618-5589-4a99-888b-49db3ba44d27.png)
+
+
+### use_memavx512_
 
 * Before refined
 ![image](https://user-images.githubusercontent.com/3771594/161369531-1da69158-5f44-4be8-ab50-5fa0141d1f6a.png)
