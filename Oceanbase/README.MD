@@ -15,6 +15,8 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
 ObObj::make_sort_key会用到 memcomparableformat, 其概念在https://github.com/facebook/mysql-5.6/wiki/MyRocks-record-format#:~:text=To%20support%20memcomparable%20format%2C%20MyRocks,remainder%20of%20non%2Dkey%20columns. 中有描述（中文翻译版：https://wanghenshui.github.io/MyRocks_zh_doc/%E4%B8%83%E3%80%81%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84/2.MyRocks%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.html ）
 
+* https://blog.karatos.in/a?ID=01050-75f2485f-7cf3-416b-bb60-8c868ae7f2b9
+
 比如
 
 ![image](https://user-images.githubusercontent.com/3771594/162111330-534ff8ea-bb5b-4092-bae5-9f5a0289862e.png)
