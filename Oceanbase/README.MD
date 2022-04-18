@@ -32,15 +32,14 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
 drop index I_L_ORDERKEY on lineitem;
 drop index I_L_SHIPINS on lineitem;
- drop index I_L_SHIPDATE_COMMITDATE on lineitem;
+drop index I_L_SHIPDATE_COMMITDATE on lineitem;
 
+* avx512f 
 
-* avx512f
+MySQL [ssb_30g]> create index I_L_ORDERKEY on lineitem(l_orderkey) local; <br>
+Query OK, 0 rows affected (54.981 sec) <br>
 
-MySQL [ssb_30g]> create index I_L_ORDERKEY on lineitem(l_orderkey) local;
-Query OK, 0 rows affected (54.981 sec)
-
-MySQL [ssb_30g]> select  * from lineitem order by l_orderkey  limit 10;
+MySQL [ssb_30g]> select  * from lineitem order by l_orderkey  limit 10;<br>
 +------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+-------------------+------------+-------------------------------------+
 | l_orderkey | l_partkey | l_suppkey | l_linenumber | l_quantity | l_extendedprice | l_discount | l_tax | l_returnflag | l_linestatus | l_shipdate | l_commitdate | l_receiptdate | l_shipinstruct    | l_shipmode | l_comment                           |
 +------------+-----------+-----------+--------------+------------+-----------------+------------+-------+--------------+--------------+------------+--------------+---------------+-------------------+------------+-------------------------------------+
