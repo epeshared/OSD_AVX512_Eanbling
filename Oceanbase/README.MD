@@ -7,6 +7,27 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 ![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)
 
 
+    create table lineitem (
+    l_orderkey bigint not null,
+    l_partkey bigint not null,
+    l_suppkey bigint not null,
+    l_linenumber bigint not null,
+    l_quantity bigint not null,
+    l_extendedprice bigint not null,
+    l_discount bigint not null,
+    l_tax bigint not null,
+    l_returnflag char(1) default null,
+    l_linestatus char(1) default null,
+    l_shipdate date not null,
+    l_commitdate date default null,
+    l_receiptdate date default null,
+    l_shipinstruct char(25) default null,
+    l_shipmode char(10) default null,
+    l_comment varchar(44) default null,
+    primary key(l_orderkey, l_linenumber))
+    tablegroup = tpch_tg_100g_lineitem_order_group
+    partition by key (l_orderkey) partitions 192;
+    
     create index I_L_ORDERKEY on lineitem(l_orderkey) local;
     create index I_L_SHIPINS on lineitem(l_shipinstruct) local;
     create index I_L_SHIPDATE_COMMITDATE on lineitem(l_shipdate, l_commitdate) local;
