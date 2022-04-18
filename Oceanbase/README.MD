@@ -4,7 +4,8 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
 # Performance
 
-![image](https://user-images.githubusercontent.com/3771594/163765268-69de0197-487f-4fc6-af77-4f6085df140e.png)
+![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)
+
 
     create index I_L_ORDERKEY on lineitem(l_orderkey) local;
     create index I_L_SHIPINS on lineitem(l_shipinstruct) local;
