@@ -30,9 +30,9 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
     partition by key (l_orderkey) partitions 192;
 
 
-drop index I_L_ORDERKEY on lineitem;
-drop index I_L_SHIPINS on lineitem;
-drop index I_L_SHIPDATE_COMMITDATE on lineitem;
+    drop index I_L_ORDERKEY on lineitem;
+    drop index I_L_SHIPINS on lineitem;
+    drop index I_L_SHIPDATE_COMMITDATE on lineitem;
 
 * avx512f 
 
