@@ -35,8 +35,8 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
     drop index I_L_SHIPINS on lineitem;
     drop index I_L_SHIPDATE_COMMITDATE on lineitem;    
     
-测试环境: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz
-测试结果：
+测试环境: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz<br>
+测试结果：<br>
 ![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)    
     
 # 3. Code calling graph
