@@ -2,7 +2,7 @@
 
 https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
-# Performance
+# 2. Performance
 
 ![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)
 
@@ -37,10 +37,10 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
     drop index I_L_SHIPDATE_COMMITDATE on lineitem;    
     
     
-#3. Code calling graph
+# 3. Code calling graph
 **ob_build_index_task.cpp::ObIndexLocalSortTask**::process --> **ob_partition_storage.cpp::ObPartitionStorage**::local_sort_index_by_range --> **ob_parallel_external_sort.h::ObExternalSort**::add_item --> **ob_parallel_external_sort.h::ObMemorySortRound**::build_fragment  --> **ob_avx512_sort.cpp**::sort -->**ob_avx512_sort.cpp**::sort_loop --> **ob_i_store.cpp::ObStoreRow::**::get_sort_key --> **ob_object.cpp::ObObj**::make_sort_key --> **ObCharset**::sortkey_v2 --> **ob_ctype.h**::strnxfrm_v2
 
-#4. ObStoreRow的key的比较
+# 4. ObStoreRow的key的比较
 
 ObStoreRow的value既存储了数据又存储了key.在没有使用AVX512的情况下, key的compare是在ob_obj_compare.cpp中定义的。具体比较过程是判断key的类别，然后根据具体类别来判断大小。比如对uint型比较，就是直接判断其数值大小，代码如下：
 
@@ -101,7 +101,7 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 
 所以为了在创建索引的时候使用到avx512b对key的比较，在ObStoreRow中加入了get_sort_key和在ObObject中加入了make_sort_key函数。make_sort_key负责将所有内型转换成可以比较的二进制形式，然后通过get_sort_key返回。
 
-# Refined Code
+# 5. Refined Code
 ### how to use avx512
 
 * ENABLE_AVX512F is enabled in build.sh
