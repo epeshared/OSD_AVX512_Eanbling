@@ -103,22 +103,13 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 
 所以为了在创建索引的时候使用到avx512b对key的比较，在ObStoreRow中加入了get_sort_key和在ObObject中加入了make_sort_key函数。make_sort_key负责将所有内型转换成可以比较的二进制形式，然后通过get_sort_key返回。
 
-# 5. Refined Code
-### how to use avx512
+# 5. AVX512 打开的条件
 
-* ENABLE_AVX512F is enabled in build.sh
-* __builtin_cpu_supports("avx512f") is enbales in src/storage/ob_parallel_external_sort.h
+* ENABLE_AVX512F 是build.sh中定义的变量，可以看做编译期是否编译avx512代码
+* __builtin_cpu_supports("avx512f")：在src/storage/ob_parallel_external_sort.h文件中runtime的判断当前运行的CPU是否支持avx512
 
+是否运行AVX512代码由两部分觉得，一个是是否编译了avx512代码（ENABLE_AVX512F是否为ON），一个是当前运行的CPU是否支持avx512（__builtin_cpu_supports("avx512f")）：
 ![image](https://user-images.githubusercontent.com/3771594/162872922-4132b618-5589-4a99-888b-49db3ba44d27.png)
-
-
-### use_memavx512_
-
-* Before refined
-![image](https://user-images.githubusercontent.com/3771594/161369531-1da69158-5f44-4be8-ab50-5fa0141d1f6a.png)
-
-* After refined
-![image](https://user-images.githubusercontent.com/3771594/162873248-609ed44c-ce58-42d6-9cdb-37f78f5f4080.png)
 
 
 
