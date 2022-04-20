@@ -83,7 +83,7 @@ ObStoreRow的value既存储了数据又存储了key.在没有使用AVX512的情�
                                           
 但是对于采用avx512的bitonic的key值比较，是需要对每个字节的二进制进行比较的。明显的，上述的ObStoreRow的比较是无法使用avx512的。所以需要将所有的key的内型都转换成可以二进制比较的形式。而MyRocks就提供了一种叫memcompareble format的方法
   
-## Memcomparableformat
+## Memcomparable format
 
 memcompareble format的主要目的就是可以不在序列号和反序列化的情况下做到直接利用C语言的memcmp的进行比较。而memcmp就是使用按照字节的二进制比较。所以memcomparable format就可以很好的支持avx512的比较。
 
