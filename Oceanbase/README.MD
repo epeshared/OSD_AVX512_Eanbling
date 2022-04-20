@@ -96,7 +96,7 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 
 ![image](https://user-images.githubusercontent.com/3771594/164168229-110cd495-991b-4877-9114-1d0f1478ac12.png)
 
-对应于MyRocks(https://github.com/facebook/mysql-5.6/blob/fb-mysql-5.6.35/storage/rocksdb/rdb_datadic.cc)的代码：
+对应于MyRocks(https://github.com/facebook/mysql-5.6/blob/fb-mysql-5.6.35/storage/rocksdb/rdb_datadic.cc) 的代码：
 
 ![image](https://user-images.githubusercontent.com/3771594/162111561-f7adb9f0-d32f-4e99-9119-194ccdd065d0.png)
 
