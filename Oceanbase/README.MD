@@ -37,10 +37,10 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
     drop index I_L_SHIPDATE_COMMITDATE on lineitem;    
     
     
-# Code calling graph
+#3. Code calling graph
 **ob_build_index_task.cpp::ObIndexLocalSortTask**::process --> **ob_partition_storage.cpp::ObPartitionStorage**::local_sort_index_by_range --> **ob_parallel_external_sort.h::ObExternalSort**::add_item --> **ob_parallel_external_sort.h::ObMemorySortRound**::build_fragment  --> **ob_avx512_sort.cpp**::sort -->**ob_avx512_sort.cpp**::sort_loop --> **ob_i_store.cpp::ObStoreRow::**::get_sort_key --> **ob_object.cpp::ObObj**::make_sort_key --> **ObCharset**::sortkey_v2 --> **ob_ctype.h**::strnxfrm_v2
 
-# ObStoreRow的key的比较
+#4. ObStoreRow的key的比较
 
 ObStoreRow的value既存储了数据又存储了key.在没有使用AVX512的情况下, key的compare是在ob_obj_compare.cpp中定义的。具体比较过程是判断key的类别，然后根据具体类别来判断大小。比如对uint型比较，就是直接判断其数值大小，代码如下：
 
