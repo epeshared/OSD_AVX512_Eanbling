@@ -4,6 +4,8 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
 # 2. Performance
 
+System: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz
+
 ![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)
 
 
