@@ -100,6 +100,8 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 
 ![image](https://user-images.githubusercontent.com/3771594/162111561-f7adb9f0-d32f-4e99-9119-194ccdd065d0.png)
 
+在上面的例子中，MyRocks判断了CPU是大端还是小端编码。但是对于要使用AVX512的CPU来说，都是Intel的CPU，Intel是按小端编码。所以在ObObject的make_sort_key中不需要判断是否是大小端，一律按小端编码的情况就可以了。
+
 ## 加入新的函数
 
 所以为了在创建索引的时候使用到avx512b对key的比较，在ObStoreRow中加入了get_sort_key和在ObObject中加入了make_sort_key函数。make_sort_key负责将所有内型转换成可以比较的二进制形式，然后通过get_sort_key返回。
