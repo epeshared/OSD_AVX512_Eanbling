@@ -4,10 +4,7 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
 # 2. Performance
 
-System: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz
-
-![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)
-
+性能测试创建的表和索引如下：
 
     create table lineitem (
     l_orderkey bigint not null,
@@ -38,6 +35,9 @@ System: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz
     drop index I_L_SHIPINS on lineitem;
     drop index I_L_SHIPDATE_COMMITDATE on lineitem;    
     
+测试环境: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz
+测试结果：
+![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)    
     
 # 3. Code calling graph
 **ob_build_index_task.cpp::ObIndexLocalSortTask**::process --> **ob_partition_storage.cpp::ObPartitionStorage**::local_sort_index_by_range --> **ob_parallel_external_sort.h::ObExternalSort**::add_item --> **ob_parallel_external_sort.h::ObMemorySortRound**::build_fragment  --> **ob_avx512_sort.cpp**::sort -->**ob_avx512_sort.cpp**::sort_loop --> **ob_i_store.cpp::ObStoreRow::**::get_sort_key --> **ob_object.cpp::ObObj**::make_sort_key --> **ObCharset**::sortkey_v2 --> **ob_ctype.h**::strnxfrm_v2
