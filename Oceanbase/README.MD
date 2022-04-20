@@ -87,13 +87,14 @@ ObStoreRow的value既存储了数据又存储了key.在没有使用AVX512的情�
 
 memcompareble format的主要目的就是可以不在序列号和反序列化的情况下做到直接利用C语言的memcmp的进行比较。而memcmp就是使用按照字节的二进制比较。所以memcomparable format就可以很好的支持avx512的比较。
 
-其概念在https://github.com/facebook/mysql-5.6/wiki/MyRocks-record-format#:~:text=To%20support%20memcomparable%20format%2C%20MyRocks,remainder%20of%20non%2Dkey%20columns. 中有描述（中文翻译版：https://wanghenshui.github.io/MyRocks_zh_doc/%E4%B8%83%E3%80%81%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84/2.MyRocks%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.html ）
+其概念在https://github.com/facebook/mysql-5.6/wiki/MyRocks-record-format#memcomparable-format. 中有描述（中文翻译版：https://wanghenshui.github.io/MyRocks_zh_doc/%E4%B8%83%E3%80%81%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84/2.MyRocks%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.html ）
 
+有一个列子：
 * https://blog.karatos.in/a?ID=01050-75f2485f-7cf3-416b-bb60-8c868ae7f2b9
 
-比如
+而代码有借鉴与MyRocks的具体实现，例如对于将int型转换成memcomparable format, ObObject的make_sort_key代码如下
 
-![image](https://user-images.githubusercontent.com/3771594/162111330-534ff8ea-bb5b-4092-bae5-9f5a0289862e.png)
+![image](https://user-images.githubusercontent.com/3771594/164168229-110cd495-991b-4877-9114-1d0f1478ac12.png)
 
 对应于MyRocks(https://github.com/facebook/mysql-5.6/blob/fb-mysql-5.6.35/storage/rocksdb/rdb_datadic.cc)的代码：
 
