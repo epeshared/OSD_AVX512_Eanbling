@@ -92,7 +92,7 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 有一个列子：
 * https://blog.karatos.in/a?ID=01050-75f2485f-7cf3-416b-bb60-8c868ae7f2b9
 
-而代码有借鉴与MyRocks的具体实现，例如对于将int型转换成memcomparable format, ObObject的make_sort_key代码如下
+而新加的代码有借鉴与MyRocks的具体实现(新的代码在ObObject的make_sort_key函数)，例如对于将int型转换成memcomparable format, ObObject的make_sort_key代码如下
 
 ![image](https://user-images.githubusercontent.com/3771594/164168229-110cd495-991b-4877-9114-1d0f1478ac12.png)
 
