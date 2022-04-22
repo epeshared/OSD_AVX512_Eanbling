@@ -111,7 +111,7 @@ memcompareble format的主要目的就是可以不在序列号和反序列化的
 * ENABLE_AVX512F 是build.sh中定义的变量，可以看做编译期是否编译avx512代码
 * __builtin_cpu_supports("avx512f")：在src/storage/ob_parallel_external_sort.h文件中runtime的判断当前运行的CPU是否支持avx512
 
-是否运行AVX512代码由两部分觉得，一个是是否编译了avx512代码（ENABLE_AVX512F是否为ON），一个是当前运行的CPU是否支持avx512（__builtin_cpu_supports("avx512f")）：<br>
+是否运行AVX512代码由两部分决定，一个是是否编译了avx512代码（ENABLE_AVX512F是否为ON），一个是当前运行的CPU是否支持avx512（__builtin_cpu_supports("avx512f")）：<br>
 ![image](https://user-images.githubusercontent.com/3771594/162872922-4132b618-5589-4a99-888b-49db3ba44d27.png)
 
 
