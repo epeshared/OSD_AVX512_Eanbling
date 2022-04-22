@@ -36,10 +36,10 @@ https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
     drop index I_L_SHIPDATE_COMMITDATE on lineitem;    
     
 测试环境: Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz<br>
-测试结果：<br>
+测试结果 (单位：秒)：<br>
 ![image](https://user-images.githubusercontent.com/3771594/163766722-5a322b46-b1c9-40fa-8e74-72c27a3483e3.png)    
     
-# 3. Code calling graph
+# 3. 创建索引的函数调用关系
 **ob_build_index_task.cpp::ObIndexLocalSortTask**::process --> **ob_partition_storage.cpp::ObPartitionStorage**::local_sort_index_by_range --> **ob_parallel_external_sort.h::ObExternalSort**::add_item --> **ob_parallel_external_sort.h::ObMemorySortRound**::build_fragment  --> **ob_avx512_sort.cpp**::sort -->**ob_avx512_sort.cpp**::sort_loop --> **ob_i_store.cpp::ObStoreRow::**::get_sort_key --> **ob_object.cpp::ObObj**::make_sort_key --> **ObCharset**::sortkey_v2 --> **ob_ctype.h**::strnxfrm_v2
 
 # 4. ObStoreRow的key的比较
