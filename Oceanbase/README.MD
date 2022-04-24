@@ -2,6 +2,10 @@
 
 https://github.com/oceanbase/oceanbase/compare/master...xtangxtang:master
 
+The PR
+
+https://github.com/oceanbase/oceanbase/pull/887
+
 # 2. Performance
 
 性能测试创建的表和索引如下：
